@@ -2,9 +2,13 @@
 Module containing all the BAT relevant methods.
 """
 from modules.defaults import my_data
-default_data = my_data()
 
 def read(my_data):
+    if my_data["GBM_data"] == None:
+        print("Please provide GBM data first.")
+        print()
+        return(my_data)
+
     import modules.helpers as hlp
 
     if my_data["BAT_data"] != None:
@@ -46,11 +50,21 @@ def read(my_data):
             break
         except:
             print("OOPS! An error occured! Please provide a valid BAT fits file!")
+    
+    # Only keep BAT data inside the GBM range:
+    gbm_dates = my_data["GBM_data"]["dates"]
+    start_date = gbm_dates[0]
+    stop_date = gbm_dates[-1]
 
+    rate = rate[date >= start_date][date[date>=start_date] <= stop_date]
+    rate_err = rate_err[date >= start_date][date[date>=start_date] <= stop_date]
+    date = date[date >= start_date][date[date>=start_date] <= stop_date]
+    
+    # Write to the dictionary
     my_data["BAT_data"] = {
-            "dates" : date,
-            "rate" : rate,
-            "rate_err" : rate_err
+            "dates" : date.tolist(),
+            "rate" : rate.tolist(),
+            "rate_err" : rate_err.tolist()
             }
 
     return my_data

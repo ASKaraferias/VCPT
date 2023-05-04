@@ -7,13 +7,14 @@ import modules.distance as dist
 import modules.luminosity as lumi
 import modules.visualize as visual
 import modules.reference as ref
+import modules.helpers as hlp
 
 msg.banner()
 
 my_data = defaults.my_data()
 while True:
     choice = msg.mainmenu()
-    if choice == '0':
+    if choice in ('q', 'Q'):
         break
     elif choice == '1':
         gbm.read(my_data) 
@@ -27,6 +28,10 @@ while True:
         dist.init(my_data)
     elif choice == '6':
         ref.read(my_data)
+    elif choice in ('I', 'i'):
+        my_data = hlp.importjson()
+    elif choice in ('E', 'e'):
+        hlp.exportjson(my_data)
     else:
        msg.menu_err() 
 

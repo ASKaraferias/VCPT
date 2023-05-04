@@ -32,16 +32,20 @@ def banner():
 
 def mainmenu():
     print()
-    print("Choose an option (enter the correct \
-number and press RETURN):")
+    print("Enter an option and press RETURN:")
     print()
-    print("[1] Import GBM '.fits' data.")
-    print("[2] Import BAT '.fits' data.")
+    print("[1] Import GBM '.fits' data. (Start here)")
+    print("[2] Import BAT '.fits' data. (Optional)")
     print("[3] Visualize your data.")
-    print("[4] Select an luminosity proxy. (Optional, Default: GBM Amplitude)")
-    print("[5] Set the distance to the source. (Optional)")
+    print("[4] Select a luminosity proxy. (Optional. Defaults to GBM Amplitude.)")
+    print("[5] Set the distance to the source. (Optional. Defaults to Unknkown distance.)")
     print("[6] Provide reference Flux(es).")
-    print("[0] Exit")
+    print("[7] Run!")
+    print()
+    print("[I] Import a saved json file.")
+    print("[E] Export your current data to json file.")
+    print()
+    print("[q] Exit")
     print()
     choice = input("Your choice: ").strip()
     return choice
@@ -59,6 +63,17 @@ def lumi_menu():
     print()
     print("[1] GBM amplitude")
     print("[2] BAT count rates")
+    print()
+    choice = input("Your choice: ").strip()
+    return choice
+
+def visualize_menu():
+    print("Options:")
+    print()
+    print("[1] Change date range.")
+    print("[2] Check account for gaps.")
+    print()
+    print("[q] Exit submenu.")
     print()
     choice = input("Your choice: ").strip()
     return choice

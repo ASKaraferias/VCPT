@@ -51,11 +51,11 @@ def read(my_data):
         except:
             print("OOPS! An error occured! Please provide a valid GBM fits file!")
     my_data["GBM_data"] = {
-            "dates" : date,
-            "freq" : freq,
-            "frew_err" : freq_err,
-            "amp" : amp,
-            "amp_err": amp_err
+            "dates" : date.tolist(),
+            "freq" : freq.tolist(),
+            "frew_err" : freq_err.tolist(),
+            "amp" : amp.tolist(),
+            "amp_err": amp_err.tolist()
             }
 
     return my_data

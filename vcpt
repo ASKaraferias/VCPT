@@ -31,9 +31,9 @@ while True:
         dist.init(my_data) # If the distance to the source is known, specify it here.
 
     elif choice in ('I', 'i'):
-        my_data = hlp.importjson() # Import saved json file 
+        my_data = hlp.importjson() # Import saved json file.
     elif choice in ('E', 'e'):
-        hlp.exportjson(my_data) # Save your work to a json file
+        hlp.exportjson(my_data) # Save your work to a json file.
 
     else:
        msg.menu_err() 

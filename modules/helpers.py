@@ -45,3 +45,16 @@ def exportjson(my_data):
                 break
             except:
                 print("Please provide a valid filename!")
+
+def restrict_by_date(obs_data, start, stop):
+    """
+    Arguments: obs_data (dictionary, e.g. 'my_data["GBM_data"]'), start date, stop date
+    Returns: obs_data restricted to the data between the start date and stop date
+    """
+    import numpy as np
+    old_dates = np.array(obs_data["dates"])
+    for key in obs_data.keys():
+        obs_data[key] = np.array(obs_data[key])
+        obs_data[key] = obs_data[key][old_dates >= start][old_dates[old_dates >= start] <= stop].tolist()
+    return obs_data
+

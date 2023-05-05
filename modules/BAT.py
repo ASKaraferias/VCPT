@@ -51,20 +51,16 @@ def read(my_data):
         except:
             print("OOPS! An error occured! Please provide a valid BAT fits file!")
     
-    # Only keep BAT data inside the GBM range:
-    gbm_dates = my_data["GBM_data"]["dates"]
-    start_date = gbm_dates[0]
-    stop_date = gbm_dates[-1]
-
-    rate = rate[date >= start_date][date[date>=start_date] <= stop_date]
-    rate_err = rate_err[date >= start_date][date[date>=start_date] <= stop_date]
-    date = date[date >= start_date][date[date>=start_date] <= stop_date]
-    
     # Write to the dictionary
     my_data["BAT_data"] = {
             "dates" : date.tolist(),
             "rate" : rate.tolist(),
             "rate_err" : rate_err.tolist()
             }
+
+    # Only keep BAT data inside the GBM range:
+    start_date = my_data["GBM_data"]["dates"][0]
+    stop_date = my_data["GBM_data"]["dates"][-1]
+    my_data["BAT_data"] = hlp.restrict_by_date(my_data["BAT_data"], start_date, stop_date)
 
     return my_data

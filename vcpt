@@ -16,22 +16,25 @@ while True:
     choice = msg.mainmenu()
     if choice in ('q', 'Q'):
         break
+
     elif choice == '1':
-        gbm.read(my_data) 
+        gbm.read(my_data) # Read GBM data.
     elif choice == '2':
-        bat.read(my_data)
+        bat.read(my_data) # Read BAT data.
     elif choice == '3':
-        visual.init(my_data)
+        ref.read(my_data) # Provide the Flux on reference dates.
     elif choice == '4':
-        lumi.select_proxy(my_data)
+        visual.init(my_data) # Plot the data, or modify them (i.e. change the date range, or remove data points)
     elif choice == '5':
-        dist.init(my_data)
+        lumi.select_proxy(my_data) # Select a proxy for the luminosity if data from observatories other than GBM are available.
     elif choice == '6':
-        ref.read(my_data)
+        dist.init(my_data) # If the distance to the source is known, specify it here.
+
     elif choice in ('I', 'i'):
-        my_data = hlp.importjson()
+        my_data = hlp.importjson() # Import saved json file 
     elif choice in ('E', 'e'):
-        hlp.exportjson(my_data)
+        hlp.exportjson(my_data) # Save your work to a json file
+
     else:
        msg.menu_err() 
 

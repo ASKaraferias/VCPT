@@ -1,10 +1,11 @@
 def gbmplot(data):
     import matplotlib.pyplot as plt
+    plt.figure()
     plt.plot(data["GBM_data"]["dates"], data["GBM_data"]["freq"], "k.", markersize = 2)
     plt.xlabel("DATE [MJD]")
     plt.ylabel("FREQ [Hz]")
     plt.title("GBM Frequency timeseries.")
-    plt.show()
+    plt.show(block = False)
 
 def restrict(data, new_start, new_stop):
     """
@@ -81,7 +82,9 @@ def init(my_data):
         elif choice == "1":
             my_data = redefine_range(my_data)
         elif choice == "2":
-            my_data = gaps(my_data)
+            import modules.gaps as gaps
+            my_data = gaps.init(my_data)
+
         else:
             print("Please enter a valid choice.")
             print()

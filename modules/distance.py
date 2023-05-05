@@ -18,8 +18,8 @@ def init(my_data):
             print("Prease provide a valid distance!")
             print()
     if dist_asfloat == 0:
-        my_data["distance"] = "Unknown"
+        my_data["Distance"] = "Unknown"
     else:
-        my_data["distance"] = dist_asfloat
+        my_data["Distance"] = dist_asfloat
 
     return my_data

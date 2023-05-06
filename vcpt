@@ -8,6 +8,7 @@ import modules.luminosity as lumi
 import modules.visualize as visual
 import modules.reference as ref
 import modules.helpers as hlp
+import run
 
 msg.banner()
 
@@ -29,6 +30,9 @@ while True:
         lumi.select_proxy(my_data) # Select a proxy for the luminosity if data from observatories other than GBM are available.
     elif choice == '6':
         dist.init(my_data) # If the distance to the source is known, specify it here.
+
+    elif choice == '7':
+        run.main(my_data)
 
     elif choice in ('I', 'i'):
         my_data = hlp.importjson() # Import saved json file.

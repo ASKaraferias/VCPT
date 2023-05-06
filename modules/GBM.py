@@ -53,7 +53,7 @@ def read(my_data):
     my_data["GBM_data"] = {
             "dates" : date.tolist(),
             "freq" : freq.tolist(),
-            "frew_err" : freq_err.tolist(),
+            "freq_err" : freq_err.tolist(),
             "amp" : amp.tolist(),
             "amp_err": amp_err.tolist()
             }

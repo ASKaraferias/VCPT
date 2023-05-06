@@ -88,3 +88,25 @@ def visualize_range_menu():
     print()
     choice = input("Your choice: ").strip()
     return choice
+
+def scale_intensity_menu():
+    print()
+    print("Do you want to scale the intensity proxy with the flux using a:")
+    print()
+    print("[1] First degree linear equation.")
+    print("[2] Second degree linear equation.")
+    print()
+    choice = input("Your choice: ").strip()
+    return choice
+
+def select_tm():
+    print()
+    print("Select a torque model:")
+    print()
+    print("[1] GL79 (Default)")
+    print("[2] W95")
+    print("[3] H14")
+    print("[4] B20")
+    print()
+    choice = input("Your choice: ").strip()
+    return choice

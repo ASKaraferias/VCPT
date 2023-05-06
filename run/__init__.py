@@ -29,6 +29,11 @@ def main(my_data):
 
     import run.scale_intensity as scale
     post_data = scale.scale(my_data, post_data)
+    
+    if my_data["Gaps"] != None:
+        post_data["GAP_SPOTS"] = my_data["Gaps"]["spots"]
+        post_data["GAP_DATES"] = my_data["Gaps"]["dates"]
+
     import modules.messages as msg
     while True:
         choice = msg.select_tm()
@@ -50,3 +55,8 @@ def main(my_data):
         else:
             print("Please input a valid choice.")
 
+    import modules.helpers as hlp
+    post_data["OUTPUT_DIR"] = hlp.ultranest_saves()
+
+    import run.makescript as mk
+    mk.init(post_data)

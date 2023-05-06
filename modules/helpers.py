@@ -46,6 +46,25 @@ def exportjson(my_data):
             except:
                 print("Please provide a valid filename!")
 
+def ultranest_saves():
+    import os
+    while True:
+        print()
+        parentdir = input("Where do you want Ultranest to store the output data?")
+        if os.path.isdir(parentdir):
+            try:
+                dirname = parentdir + "/vcpt_out/"
+                os.mkdir(dirname)
+                print()
+                print("Success!")
+                print()
+                break
+            except:
+                print("Sorry, I couldn't write in that directory!")
+        else:
+            print("Please enter a valid directory name!")
+    return dirname
+
 def restrict_by_date(obs_data, start, stop):
     """
     Arguments: obs_data (dictionary, e.g. 'my_data["GBM_data"]'), start date, stop date
